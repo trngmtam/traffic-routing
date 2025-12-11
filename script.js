@@ -42,6 +42,12 @@
         });
     }
 
+    updateSpeed(roadId, factor) {
+        const road = this.roads.find(r => r.id === roadId);
+        if (road) road.speedFactor = factor;
+    }
+    
+
     spawnCar(roadId, color = '#2980b9', existingCar = null) {
         const roadIndex = this.roads.findIndex(r => r.id === roadId);
         if(roadIndex === -1) return false;
