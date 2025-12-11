@@ -42,7 +42,7 @@
         });
     }
 
-    updateSpeed(roadId, factor) {
+    updateSpeed_4(roadId, factor) {
         const road = this.roads.find(r => r.id === roadId);
         if (road) road.speedFactor = factor;
     }
@@ -397,8 +397,8 @@ function initMod4() {
         
         // 3. Visual Speed Adjustment
         // Formula: 5 / time. Slower speed makes the difference more obvious.
-        viz.updateSpeed('Main', 5 / timeMain);
-        viz.updateSpeed('Long', 5 / 45); 
+        viz.updateSpeed_4('Main', 5 / timeMain);
+        viz.updateSpeed_4('Long', 5 / 45); 
         
         // 4. DYNAMIC ADVICE LOGIC
         let advice = document.getElementById('m4-advice');
