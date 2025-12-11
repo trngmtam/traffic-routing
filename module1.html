@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 1: The Dilemma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-title">TRAFFIC & GAME THEORY</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="module1.html" class="active">1. Dilemma</a>
+            <a href="module2.html">2. Paradox</a>
+            <a href="module4.html">3. A Solution</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content-block">
+            <h1>Module 1: The Commuter's Dilemma</h1>
+            <p>Imagine 4,000 drivers trying to get to work. They have two choices:</p>
+            <ul>
+                <li><strong>Route A (Main Road):</strong> Short distance, but gets slower as more people use it.</li>
+                <li><strong>Route B (Backroad):</strong> Long distance, but traffic never builds up (constant time).</li>
+            </ul>
+
+            <canvas id="m1-canvas"></canvas>
+
+            <div class="control-panel">
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <small>Route A (Variable)</small>
+                        <div class="metric-val" id="val-a-time">10 min</div>
+                        <small><span id="val-a-cars">4000</span> Cars</small>
+                    </div>
+                    <div class="metric-card">
+                        <small>Route B (Constant)</small>
+                        <div class="metric-val" id="val-b-time">45 min</div>
+                        <small><span id="val-b-cars">0</span> Cars</small>
+                    </div>
+                </div>
+                <div style="margin-top:20px; text-align:center;">
+                    <p id="m1-msg"></p>
+                    <button class="btn-action" onclick="mod1_move('toB')">Move 100 Cars to B</button>
+                    <button class="btn-action" onclick="mod1_move('toA')">Move 100 Cars to A</button>
+                    <button class="btn-action danger" onclick="mod1_reset()">Reset</button>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <h3>The Concept: Nash Equilibrium</h3>
+                <p>In Game Theory, a <strong>Nash Equilibrium</strong> occurs when no player can improve their result by changing their own strategy alone.</p>
+                <p>Initially, everyone takes Route A because it's faster (10 mins). But as 4,000 cars pile in, the time rises to 50 minutes. At this point, Route B (45 mins) is actually faster. Drivers will shift to Route B until the times equalize.</p>
+                
+                <hr style="border: 0; border-top: 1px dashed #ccc; margin: 20px 0;">
+
+                <h3>Real World Application: The "Waze Effect"</h3>
+                <p>
+                    This simulation perfectly illustrates a modern phenomenon known as the <strong>Waze Effect</strong>. Navigation apps constantly seek the "Dominant Strategy" for individual drivers, routing them off highways (Route A) and into residential backroads (Route B) to save a few minutes.
+                </p>
+                <p>
+                    While this optimizes travel for the individual, it often leads to a <strong>Tragedy of the Commons</strong>. The quiet residential streets—a shared public resource—become overwhelmed by throughput they were never designed for. What starts as a clever shortcut often ends in gridlock for everyone.
+                </p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">
+                    <em>Source: <a href="https://medium.com/newco/the-waze-effect-ai-the-public-commons-d3926fce108e" target="_blank" style="color: var(--accent);">The Waze Effect: AI & The Public Commons</a></em>
+                </p>
+            </div>
+            
+            <div style="text-align: right; margin-top: 2rem;">
+                <a href="module2.html" class="btn-action">Next Module: Braess's Paradox &rarr;</a>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 2: Braess's Paradox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-title">TRAFFIC & GAME THEORY</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="module1.html">1. Dilemma</a>
+            <a href="module2.html" class="active">2. Paradox</a>
+            <a href="module4.html">3. A Solution</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content-block">
+            <h1>Module 2: Braess's Paradox</h1>
+            <p>
+                Imagine 100 drivers want to go from <strong>City A</strong> to <strong>City B</strong>. 
+                Common sense suggests that building a new connecting road to link the north and south routes should reduce travel time.
+                <br><br>
+                However, 
+                <a href="https://www.tws-partners.com/2019/03/11/braess-paradox-close-down-roads-reduce-congestion/" target="_blank" style="color: var(--accent); font-weight: bold;">Braess's Paradox</a> 
+                demonstrates the opposite: adding a "shortcut" can trap every driver in a <strong>Nash Equilibrium</strong> that makes everyone strictly worse off.
+            </p>
+
+            <canvas id="m2-canvas"></canvas>
+
+            <div class="control-panel" style="text-align: center;">
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <small>Configuration</small>
+                        <div class="metric-val" id="m2-status" style="font-size:1.2rem;">System Optimum</div>
+                    </div>
+                    <div class="metric-card">
+                        <small>Travel Time</small>
+                        <div class="metric-val" id="m2-time">30 min</div>
+                    </div>
+                </div>
+                <br>
+                <button class="btn-action" onclick="mod2_toggle()">Open/Close The "Shortcut"</button>
+            </div>
+
+            <div class="explanation-box" style="background: white; border: 1px solid #ccc; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 4px; margin-top: 20px; color: #333;">
+                <h3>The Mathematics of the Trap</h3>
+                <p><strong>The Setup:</strong></p>
+                <ul>
+                    <li><strong>Highway (Wide lines):</strong> Always takes <strong>20 minutes</strong> (never clogs).</li>
+                    <li><strong>Single-Lane (Thin lines):</strong> Takes <strong>5 mins + (6 seconds × number of cars)</strong>.</li>
+                    <li><strong>The Connector (Diagonal):</strong> A super-fast <strong>2 minute</strong> drive.</li>
+                </ul>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-top: 20px;">
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+                        <h4 style="margin-top:0; color: #27ae60;">Scenario A: Shortcut Closed</h4>
+                        <p>Traffic splits 50/50 between North and South.</p>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>North Route:</strong> 20 min (Hwy) + 10 min (Single) = <strong>30 min</strong></li>
+                            <li><strong>South Route:</strong> 10 min (Single) + 20 min (Hwy) = <strong>30 min</strong></li>
+                        </ul>
+                        <p><strong>Result:</strong> Everyone arrives in 30 minutes. This is balanced.</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+                        <h4 style="margin-top:0; color: #c0392b;">Scenario B: Shortcut Open</h4>
+                        <p>Why does everyone take the third option (South Single &rarr; Shortcut &rarr; North Single)?</p>
+                        <p style="font-size: 0.9rem;">
+                            Consider a driver on the South side. If they take the shortcut while no one else does (cN=49, cS=50), their travel time drops drastically:
+                            <br><br>
+                            <strong>5 min + (0.1 × 51) + 2 min + 5 min + (0.1 × 50) ≈ 22 minutes!</strong>
+                            <br><br>
+                            Since 22 minutes is much faster than 30, <em>every single driver</em> switches to this route. But when they all do, the road clogs, and the time shoots up to <strong>32 minutes</strong>. They are now trapped; switching back would take even longer (35+ mins).
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: right; margin-top: 2rem;">
+                <a href="module4.html" class="btn-action">Next Module: A Solution &rarr;</a>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

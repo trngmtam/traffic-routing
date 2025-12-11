@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 3: Pigovian Tax</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-title">TRAFFIC & GAME THEORY</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="module1.html">1. Dilemma</a>
+            <a href="module2.html">2. Paradox</a>
+            <a href="module4.html" class="active">3. A Solution</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content-block">
+            <h1>Module 3: Solving the Tragedy</h1>
+            <p>
+                How do we force "selfish" drivers to act in a way that helps everyone? 
+                The economist Arthur Pigou proposed a solution: <strong>Pricing the Externality</strong>.
+            </p>
+            <p>
+                By adding a cost (Toll) to the congested resource, we can artificially shift the Game Theory equilibrium to the "Social Optimum."
+            </p>
+
+            <canvas id="m4-canvas"></canvas>
+
+            <div class="control-panel">
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <small>Congestion Pricing</small>
+                        <div class="metric-val" id="val-toll">$0</div>
+                    </div>
+                    <div class="metric-card">
+                        <small>Main Road Time</small>
+                        <div class="metric-val" id="val-sys-time">50.0 min</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 0 20px;">
+                    <label for="m4-slider" style="display:block; margin-bottom:10px;">Adjust Toll Price:</label>
+                    <input type="range" id="m4-slider" min="0" max="20" value="0" style="width: 100%;">
+                </div>
+
+                <p id="m4-advice" style="text-align: center; font-weight: bold; margin-top: 1rem; color: var(--primary);"></p>
+            </div>
+
+            <div class="explanation-box">
+                <h3>The Pigovian Tax</h3>
+                <p>
+                    Without a toll (Toll = $0), 4,000 drivers choose the Main Road, slowing it down to 50 minutes. This is the <strong>Nash Equilibrium</strong> (everyone suffers).
+                </p>
+                <p>
+                    If we charge a toll, some drivers divert to the longer road. If we find the "Sweet Spot" (around $6-$10), the Main Road flows freely (20-30 mins), and the system handles maximum capacity efficiently.
+                </p>
+                
+                <h3>Real Life Example:                    
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0094119020300735" target="_blank" style="color: var(--accent);">London Congestion Charge</a>                
+                </h3>
+                <p>London charges drivers £15 to enter the city center during peak hours. This reduced traffic by 30% and increased average speeds significantly, while generating revenue for public transport.</p>
+            </div>
+            
+            <div style="text-align: right; margin-top: 2rem;">
+                <a href="index.html" class="btn-action">Return Home</a>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
